@@ -1,21 +1,25 @@
 import "./App.css";
 import { useState } from "react";
-import styled, { ThemeProvider } from "styled-components";
-import { darkTheme, lightTheme } from "./utils/Theme";
-import Sidebar from "./components/Sidebar";
-import Navbar from "./components/Navbar";
-import Login from "./Pages/Login/Login";
 
-const Container = styled.div``;
+import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
+import Login from "./Pages/Login/Login";
+import Divers from "./Pages/Divers/Divers";
+
 
 function App() {
-  const [darkMode, setDarkMode] = useState(true);
+
     return (
-      <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
-        <Container>
-            <Login />
-        </Container>
-      </ThemeProvider>
+        
+            
+
+                <BrowserRouter>
+                    <Routes>
+                        <Route path="/login" element={<Login />} />
+                        <Route path="/divers" element={<Divers />} />
+                    </Routes>
+                </BrowserRouter>
+            
+
     );
 }
 
